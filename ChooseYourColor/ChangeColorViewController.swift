@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ChangeColorViewController: UIViewController {
+class ViewController: UIViewController {
 
-    @IBOutlet var ColorView: UIView!
+    @IBOutlet var colorView: UIView!
     
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
@@ -22,17 +22,28 @@ class ChangeColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        colorView.layer.cornerRadius = 15
+        colorView.layer.borderWidth = 5
+        colorView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        setupTextLabel()
+        chageColorView()
     }
 
-    @IBAction func changeRedColor() {
+    @IBAction func changeColorView() {
+        setupTextLabel()
+        chageColorView()
     }
     
-    @IBAction func changerGreenColor() {
+    private func chageColorView() {
+        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
     
-    @IBAction func changeBlueColor() {
+    private func setupTextLabel() {
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
     }
-    
-    
 }
 
