@@ -24,20 +24,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 15
-        colorView.layer.borderWidth = 5
-        colorView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        
+    
         setupTextLabel()
-        chageColorView()
+        setupColorView()
     }
 
     @IBAction func changeColorView() {
         setupTextLabel()
-        chageColorView()
+        setupColorView()
     }
     
-    private func chageColorView() {
-        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    private func setupColorView() {
+        colorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
     }
     
     private func setupTextLabel() {
