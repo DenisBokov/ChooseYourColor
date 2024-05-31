@@ -44,9 +44,13 @@ class ViewController: UIViewController {
     }
     
     private func setupTextLabel() {
-        redLabel.text = String(format: "%.2f", redSlider.value)
-        greenLabel.text = String(format: "%.2f", greenSlider.value)
-        blueLabel.text = String(format: "%.2f", blueSlider.value)
+        redLabel.text = stringFormat(for: redSlider)
+        greenLabel.text = stringFormat(for: greenSlider)
+        blueLabel.text = stringFormat(for: blueSlider)
+    }
+    
+    private func stringFormat(for slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
 
