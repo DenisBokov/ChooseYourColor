@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="NVX-Zq-d6c">
             <objects>
-                <viewController id="Z6O-tu-VBS" sceneMemberID="viewController">
+                <viewController id="Z6O-tu-VBS" customClass="MainViewController" customModule="ChooseYourColor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tMf-Fn-gWB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                     <navigationItem key="navigationItem" id="499-zV-XAO">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="wdO-4d-i0S">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="RRb-1g-fao"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="LCx-dF-hOA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -30,23 +30,23 @@
             </objects>
             <point key="canvasLocation" x="361" y="-43"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Color View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChooseYourColor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChangeColorViewController" customModule="ChooseYourColor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiO-6i-Jgr">
-                                <rect key="frame" x="16" y="94" width="343" height="192.5"/>
+                                <rect key="frame" x="16" y="30" width="343" height="192.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192.5" id="kDb-eM-kmG"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="3pk-nR-qLg">
-                                <rect key="frame" x="16" y="308" width="343" height="132"/>
+                                <rect key="frame" x="16" y="244" width="343" height="132"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-BK-3zo">
                                         <rect key="frame" x="0.0" y="9.5" width="51" height="113.5"/>
@@ -159,6 +159,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save changes"/>
+                                <connections>
+                                    <action selector="saveChangesButtonPrest" destination="BYZ-38-t0r" eventType="touchUpInside" id="4gP-b1-Ndq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

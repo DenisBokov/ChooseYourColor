@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChangeColorViewController.swift
 //  ChooseYourColor
 //
 //  Created by Denis Bokov on 30.05.2024.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ChangeColorViewController: UIViewController {
+    
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redSlider: UISlider!
@@ -19,19 +19,41 @@ class ViewController: UIViewController {
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
     
+    var colorViewChange: UIColor!
+    var delegate: ChangeColorViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 15
-    
+        colorView.backgroundColor = colorViewChange
+        
+        setupSliders()
         setupTextLabel()
-        setupColorView()
     }
-
+    
     @IBAction func changeColorView() {
         setupTextLabel()
         setupColorView()
+    }
+    
+    @IBAction func saveChangesButtonPrest() {
+        delegate.setNewColor(for: colorView.backgroundColor ?? UIColor.white)
+        dismiss(animated: true)
+    }
+    
+    private func setupSliders() {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        if colorViewChange.getRed(&r, green: &g, blue: &b, alpha: &a) {
+                redSlider.setValue(Float(r), animated: true)
+                greenSlider.setValue(Float(g), animated: true)
+                blueSlider.setValue(Float(b), animated: true)
+        }
+
     }
     
     private func setupColorView() {

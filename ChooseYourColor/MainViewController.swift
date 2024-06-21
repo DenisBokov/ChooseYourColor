@@ -8,20 +8,29 @@
 import UIKit
 
 protocol ChangeColorViewControllerDelegate {
-    
+    func setNewColor(for color: UIColor)
 }
 
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
     }
 
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let changeColorVC = segue.destination as? ChangeColorViewController else { return }
+        changeColorVC.colorViewChange = view.backgroundColor
+        changeColorVC.delegate = self
     }
 }
+
+// MARK: - ChangeColorViewControllerDelegate
+extension MainViewController: ChangeColorViewControllerDelegate {
+    func setNewColor(for color: UIColor) {
+        view.backgroundColor = color
+    }
+}
+
+
