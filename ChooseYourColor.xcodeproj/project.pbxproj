@@ -13,6 +13,7 @@
 		EF5B985E2C085D760066A283 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EF5B985D2C085D760066A283 /* Base */; };
 		EF5B98602C085D770066A283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5B985F2C085D770066A283 /* Assets.xcassets */; };
 		EF5B98632C085D770066A283 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EF5B98622C085D770066A283 /* Base */; };
+		EF8207402C258292008497F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF82073F2C258292008497F8 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EF5B985F2C085D770066A283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF5B98622C085D770066A283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF5B98642C085D770066A283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF82073F2C258292008497F8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				EF5B98562C085D760066A283 /* AppDelegate.swift */,
 				EF5B98582C085D760066A283 /* SceneDelegate.swift */,
 				EF5B985A2C085D760066A283 /* ChangeColorViewController.swift */,
+				EF82073F2C258292008497F8 /* MainViewController.swift */,
 				EF5B985C2C085D760066A283 /* Main.storyboard */,
 				EF5B985F2C085D770066A283 /* Assets.xcassets */,
 				EF5B98612C085D770066A283 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				EF5B985B2C085D760066A283 /* ChangeColorViewController.swift in Sources */,
 				EF5B98572C085D760066A283 /* AppDelegate.swift in Sources */,
 				EF5B98592C085D760066A283 /* SceneDelegate.swift in Sources */,
+				EF8207402C258292008497F8 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
