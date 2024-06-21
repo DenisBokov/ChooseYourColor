@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ChangeColorViewControllerDelegate {
+    
+}
+
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
