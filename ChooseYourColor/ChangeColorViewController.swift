@@ -97,6 +97,14 @@ class ChangeColorViewController: UIViewController {
     private func stringFormat(for slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
+    
+    private func numberFormat(for textField: UITextField) {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        if let number = formatter.number(from: textField.text ?? "0.1") {
+            redSlider.value = number.floatValue
+        }
+    }
 }
 
 // MARK - UITextFieldDelegate
@@ -105,7 +113,7 @@ extension ChangeColorViewController: UITextFieldDelegate {
         guard let newColorValue = textField.text else { return }
         
         if textField == redColorTextField {
-            redSlider.setValue(Float(newColorValue) ?? 0.0, animated: true)
+            redSlider.setValue(Float(newColorValue) ?? 0.5, animated: true)
         } else if textField == greenColorTextField {
             greenSlider.setValue(Float(newColorValue) ?? 0.0, animated: true)
         } else {
@@ -113,7 +121,8 @@ extension ChangeColorViewController: UITextFieldDelegate {
         }
 
         setupColorView()
-        setupTextLabel() 
+        setupTextLabel()
+        numberFormat(for: redColorTextField)
     }
 }
 
@@ -141,8 +150,8 @@ extension ChangeColorViewController {
         
         toolBar.items = [flexibleSpace, doneButton]
         toolBar.sizeToFit()
-        textFields.forEach { textFild in
-            textFild.inputAccessoryView = toolBar
+        textFields.forEach { textField in
+            textField.inputAccessoryView = toolBar
         }
     }
     
