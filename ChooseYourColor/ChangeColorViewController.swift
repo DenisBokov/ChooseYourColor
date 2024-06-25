@@ -19,6 +19,10 @@ class ChangeColorViewController: UIViewController {
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
     
+    @IBOutlet var redColorTextField: UITextField!
+    @IBOutlet var greenColorTextField: UITextField!
+    @IBOutlet var blueColorTextField: UITextField!
+    
     var colorViewChange: UIColor!
     var delegate: ChangeColorViewControllerDelegate!
     
@@ -28,13 +32,19 @@ class ChangeColorViewController: UIViewController {
         colorView.layer.cornerRadius = 15
         colorView.backgroundColor = colorViewChange
         
+        redColorTextField.delegate = self
+        greenColorTextField.delegate = self
+        blueColorTextField.delegate = self
+        
         setupSliders()
         setupTextLabel()
+        setupTextFields()
     }
     
     @IBAction func changeColorView() {
         setupTextLabel()
         setupColorView()
+        setupTextFields()
     }
     
     @IBAction func saveChangesButtonPrest() {
@@ -71,8 +81,28 @@ class ChangeColorViewController: UIViewController {
         blueLabel.text = stringFormat(for: blueSlider)
     }
     
+    private func setupTextFields() {
+        redColorTextField.text = stringFormat(for: redSlider)
+        greenColorTextField.text = stringFormat(for: greenSlider)
+        blueColorTextField.text = stringFormat(for: blueSlider)
+    }
+    
     private func stringFormat(for slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+// MARK - UITextFieldDelegate
+extension ChangeColorViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let redNewValue = redColorTextField.text else { return }
+        redSlider.setValue(Float(redNewValue) ?? 0.0, animated: true)
+        guard let greenNewValue = greenColorTextField.text else { return }
+        greenSlider.setValue(Float(greenNewValue) ?? 0.0, animated: true)
+        guard let blueNewValue = blueColorTextField.text else { return }
+        blueSlider.value = Float(blueNewValue) ?? 0.0
+        
+        setupColorView()
     }
 }
 

@@ -179,11 +179,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="lao-Af-TCb"/>
                     <connections>
+                        <outlet property="blueColorTextField" destination="Lh8-rD-Pit" id="PGT-Ou-N77"/>
                         <outlet property="blueLabel" destination="R6e-1D-cLf" id="QZq-Tr-YRc"/>
                         <outlet property="blueSlider" destination="qXQ-pY-Cnf" id="7cE-yk-Xxb"/>
                         <outlet property="colorView" destination="jiO-6i-Jgr" id="cqk-ch-8E0"/>
+                        <outlet property="greenColorTextField" destination="2eV-Xh-2Rn" id="vU8-dI-Zgb"/>
                         <outlet property="greenLabel" destination="hQT-pN-5nY" id="MvN-bZ-bLI"/>
                         <outlet property="greenSlider" destination="1B1-Uc-IN9" id="24K-jn-q6k"/>
+                        <outlet property="redColorTextField" destination="hWG-CM-8Nb" id="CsD-e3-lgy"/>
                         <outlet property="redLabel" destination="znI-5H-QAF" id="9UZ-u3-e4j"/>
                         <outlet property="redSlider" destination="kAI-Sj-God" id="t01-GD-tgV"/>
                     </connections>
@@ -216,13 +219,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
