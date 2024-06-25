@@ -39,6 +39,13 @@ class ChangeColorViewController: UIViewController {
         setupSliders()
         setupTextLabel()
         setupTextFields()
+        
+        addToolBar(for: redColorTextField, greenColorTextField, blueColorTextField)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @IBAction func changeColorView() {
@@ -95,14 +102,51 @@ class ChangeColorViewController: UIViewController {
 // MARK - UITextFieldDelegate
 extension ChangeColorViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let redNewValue = redColorTextField.text else { return }
-        redSlider.setValue(Float(redNewValue) ?? 0.0, animated: true)
-        guard let greenNewValue = greenColorTextField.text else { return }
-        greenSlider.setValue(Float(greenNewValue) ?? 0.0, animated: true)
-        guard let blueNewValue = blueColorTextField.text else { return }
-        blueSlider.value = Float(blueNewValue) ?? 0.0
+        guard let newColorValue = textField.text else { return }
         
+        if textField == redColorTextField {
+            redSlider.setValue(Float(newColorValue) ?? 0.0, animated: true)
+        } else if textField == greenColorTextField {
+            greenSlider.setValue(Float(newColorValue) ?? 0.0, animated: true)
+        } else {
+            blueSlider.setValue(Float(newColorValue) ?? 0.0, animated: true)
+        }
+
         setupColorView()
+        setupTextLabel() 
     }
 }
 
+extension ChangeColorViewController {
+    func addToolBar(for textFields: UITextField...) {
+        let toolBar = UIToolbar(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: view.frame.size.width,
+            height: 100
+        ))
+        
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        
+        let doneButton = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(didTapDone)
+        )
+        
+        toolBar.items = [flexibleSpace, doneButton]
+        toolBar.sizeToFit()
+        textFields.forEach { textFild in
+            textFild.inputAccessoryView = toolBar
+        }
+    }
+    
+    @objc private func didTapDone() {
+        view.endEditing(true)
+    }
+}
